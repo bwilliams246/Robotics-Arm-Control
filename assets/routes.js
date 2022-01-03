@@ -3,7 +3,7 @@ const route = express.Router()
 
 
 route.get('/' , (req , res) => {
-    res.send("<h1>Hello from the routes file</h1>")
+    res.render("/index.html")
 })
 
 module.exports = route
