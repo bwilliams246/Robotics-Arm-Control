@@ -1,0 +1,6 @@
+The servos on my personal arduino arm aren't conpletely reset, so the angles 
+are a bit off and, in some cases, inverted. 
+
+for the base servo (digital 9), it centers at around a 60 degree angle.
+
+angle 0 is also to the far right while angle 180 is far left.  

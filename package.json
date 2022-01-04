@@ -1,0 +1,28 @@
+{
+  "name": "arm-control",
+  "version": "1.0.0",
+  "description": "Controlling the Arduino Robotic Arm w/ Node.js",
+  "main": "./assets/server.js",
+  "scripts": {
+    "dev": "npx nodemon",
+    "start": "node ./assets/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://BWilliams246@bitbucket.org/BWilliams246/arm-control.git"
+  },
+  "author": "Brian",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://bitbucket.org/BWilliams246/arm-control/issues"
+  },
+  "homepage": "https://bitbucket.org/BWilliams246/arm-control#readme",
+  "dependencies": {
+    "arduino-firmata": "^0.3.4",
+    "express": "^4.17.2",
+    "johnny-five": "^2.1.0",
+    "nodemon": "^2.0.15",
+    "socket.io": "^4.4.0"
+  }
+}
