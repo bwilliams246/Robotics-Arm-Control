@@ -25,14 +25,6 @@ io.on('connection' , (socket) => {
 
     socket.on("baseSlider" , (data) => {
 	console.log(data)
-
-	/*board.on("ready" , () => {
-	    let base = new five.Servo({
-		pin: 11,
-		range: [0 , 150],
-		startAt: data.baseAngle
-	    })
-	})*/
     })
 
     board.on("ready" , function (data)  {
@@ -44,8 +36,48 @@ io.on('connection' , (socket) => {
 	    startAt: 60
 	})
 
+	let shoulder = new five.Servo({
+	    pin: 6,
+	    range: [90 , 158],
+	    startAt: 90
+	})
+
+	let elbow = new five.Servo({
+	    pin: 5,
+	    range: [65 , 90],
+	    startAt: 65
+	})
+
+	let wrist = new five.Servo({
+	    pin: 3,
+	    range: [0 , 180],
+	    startAt: 90
+	})
+
+	let claw = new five.Servo({
+	    pin: 11,
+	    range: [0 , 90],
+	    startAt: 0
+	})
+
 	socket.on('baseSlider' , (data) => {
 	    base.to(data.baseAngle)
+	})
+
+	socket.on('shoulderSlider' , (data) => {
+	    shoulder.to(data.shoulderAngle)
+	})
+
+	socket.on('elbowSlider' , (data) => {
+	    elbow.to(data.elbowAngle)
+	})
+
+	socket.on('wristSlider' , (data) => {
+	    wrist.to(data.wristAngle)
+	})
+
+	socket.on('clawSlider' , (data) => {
+	    claw.to(data.clawAngle)
 	})
     })
 })
