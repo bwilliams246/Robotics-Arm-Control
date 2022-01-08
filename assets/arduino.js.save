@@ -40,78 +40,35 @@ board.on("ready" , () => {
     })
 
     const redLight = new GPIO(4 , 'out')
+    const blueLight = new GPIO(3 , 'out')
 
     socket.on('baseSlider' , (data) => {
 	base.to(data.baseAngle)
-	redLightSwitch(data , redLight)
+
+	if (data.baseAngle >= 150 || data.baseAngle <= 0) {
+	    redLight.writeSync(1)
+	}
+
+	else {
+	    redLight.writeSync(0)
+	}
     })
 
     socket.on('shoulderSlider' , (data) => {
 	shoulder.to(data.shoulderAngle)
-	redLightSwitch(data , redLight)
     })
 
     socket.on('elbowSlider' , (data) => {
 	elbow.to(data.elbowAngle)
-	redLightSwitch(data , redLight)
     })
 
     socket.on('wristSlider' , (data) => {
 	wrist.to(data.wristAngle)
-	redLightSwitch(data , redLight)
     })
 
     socket.on('clawSlider' , (data) => {
 	claw.to(data.clawAngle)
-	redLightSwitch(data , redLight)
     })
 })
-
-function redLightSwitch (data , light) {
-    if (data.baseAngle) {
-	if (data.baseAngle >= 150 || data.baseAngle <= 0) {
-	    light.writeSync(1)
-	}
-	else {
-	    light.writeSync(0)
-	}
-    }
-
-    else if (data.shoulderAngle) {
-	if (data.shoulderAngle >= 130 || data.shoulderAngle <= 90) {
-	    light.writeSync(1)
-	}
-	else {
-	    light.writeSync(0)
-	}
-    }
-
-    else if (data.elbowAngle) {
-	if (data.elbowAngle >= 90 || data.elbowAngle <= 25) {
-	    light.writeSync(1)
-	}
-	else {
-	    light.writeSync(0)
-	}
-    }
-
-    else if (data.wristAngle) {
-	if (data.wristAngle >= 180 || data.wristAngle <= 0) {
-	    light.writeSync(1)
-	}
-	else {
-	    light.writeSync(0)
-	}
-    }
-
-    else if (data.clawAngle) {
-	if (data.clawAngle >= 60 || data.clawAngle <= 0) {
-	    light.writeSync(1)
-	}
-	else {
-	    light.writeSync(0)
-	}
-    }
-}
 
 module.exports = board
