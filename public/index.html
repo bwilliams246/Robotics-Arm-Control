@@ -1,18 +1,21 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Arduino Arm Control</title>
     <link rel='stylesheet' href='/css/style.css'>
 </head>
 <body>
-
-     <div class="sliders-container">
+    <div class="sliders-container">
         <div class="base-container">
             <h3>BASE: </h3>
             <input type="range" min="0" max="150" value="60" name="" class="base-slider slider">
         </div>
         <div class="shoulder-container">
             <h3>SHOULDER: </h3>
-            <input type="range" min="90" max="120" value="90" name="" class="shoulder-slider slider">
+            <input type="range" min="90" max="130" value="90" name="" class="shoulder-slider slider">
         </div>
         <div class="elbow-container">
             <h3>ELBOW: </h3>
@@ -20,7 +23,7 @@
         </div>
         <div class="wrist-container">
             <h3>WRIST: </h3>
-            <input type="range" min="" max="" value="" name="" class="wrist-slider slider">
+            <input type="range" min="0" max="180" value="90" name="" class="wrist-slider slider">
         </div>
         <div class="claw-container">
             <h3>CLAW: </h3>
@@ -30,5 +33,5 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.4.0/socket.io.js" integrity="sha512-nYuHvSAhY5lFZ4ixSViOwsEKFvlxHMU2NHts1ILuJgOS6ptUmAGt/0i5czIgMOahKZ6JN84YFDA+mCdky7dD8A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src='/js/app.js'></script>
-</body>    
+</body>
 </html>
